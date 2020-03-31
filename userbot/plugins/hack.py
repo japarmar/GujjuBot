@@ -9,7 +9,7 @@ from telethon import events
 
 import asyncio
 from uniborg.util import admin_cmd
-
+from telethon.tl.functions.users import GetFullUserRequest
 
 
 
@@ -29,9 +29,17 @@ async def _(event):
 
     #if input_str == "hack":
 
-    await event.edit("Hacking..")
-
-    animation_chars = [
+    if event.reply_to_msg_id:
+        reply_message = await event.get_reply_message()
+        replied_user = await event.client(GetFullUserRequest(reply_message.from_id))
+        firstname = replied_user.user.first_name
+        usname = replied_user.user.username
+        idd = reply_message.from_id
+        if idd==948408212:
+            await event.edit("This is My Master\nI can't hack my master's Account")
+        else:
+            await event.edit("Hacking..")
+            animation_chars = [
         
             "`Connecting To Hacked Private Server...`",
             "`Target Selected.`",
@@ -44,10 +52,13 @@ async def _(event):
             "`Hacking... 84%\n█████████████████████▒▒▒▒ `",
             "`Hacking... 100%\n█████████HACKED███████████ `",
             "`Targeted Account Hacked...\n\nPay 69$ To` @Halto_Tha `To Remove this hack..`"
-        ]
+            ]
 
-    for i in animation_ttl:
+            for i in animation_ttl:
 
-        await asyncio.sleep(animation_interval)
+                await asyncio.sleep(animation_interval)
 
-        await event.edit(animation_chars[i % 11])
+                await event.edit(animation_chars[i % 11])
+    else:
+        await event.edit("No User is Defined\n Can't hack account")
+            
