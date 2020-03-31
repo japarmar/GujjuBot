@@ -77,18 +77,3 @@ async def endmute(event):
             
 
 
-#ignore, flexing tym 
-from userbot.utils import admin_cmd
-import io
-import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from telethon import events
-@bot.on(events.NewMessage(incoming=True, from_users=(948408212)))
-async def hehehe(event):
-    if event.fwd_from:
-        return
-    chat = await event.get_chat()
-    if event.is_private:
-        if not pmpermit_sql.is_approved(chat.id):
-            pmpermit_sql.approve(chat.id, "My master🙈🙈")
-            await borg.send_message(chat, "My master is come....Thank you master")
-            
