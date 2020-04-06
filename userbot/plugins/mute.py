@@ -46,7 +46,8 @@ async def startmute(event):
         else:
             await event.edit("Successfully muted that person.\n**｀-´)⊃━☆ﾟ.*･｡ﾟ **")
 
-@command(outgoing=True, pattern=r"^.unmute ?(\d+)?")
+#@command(outgoing=True, pattern=r"^.unmute ?(\d+)?")
+@borg.on(admin_cmd(pattern="unmute ?(\d+)?"))
 async def endmute(event):
     private = False
     if event.fwd_from:
