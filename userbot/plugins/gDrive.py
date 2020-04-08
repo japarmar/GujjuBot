@@ -100,7 +100,8 @@ async def _(event):
     else:
         await mone.edit("File Not found in local server. Give me a file path :((")
 
-@command(pattern="^.drivesch ?(.*)")
+#@command(pattern="^.drivesch ?(.*)")
+@borg.on(admin_cmd(pattern=r"drivesch ?(.*)"))
 async def sch(event):
     if event.fwd_from:
         return
@@ -150,7 +151,8 @@ async def gsearch(http,query,filename):
     return msg        
 
 
-@command(pattern="^.gdrivedir ?(.*)")
+#@command(pattern="^.gdrivedir ?(.*)")
+@borg.on(admin_cmd(pattern=r"gdrivedir ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -319,7 +321,8 @@ async def upload_file(http, file_path, file_name, mime_type, event, parent_id):
     return download_url
 
 
-@command(pattern="^.gfolder ?(.*)")
+#@command(pattern="^.gfolder ?(.*)")
+@borg.on(admin_cmd(pattern=r"gfolder ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
