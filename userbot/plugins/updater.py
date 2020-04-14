@@ -6,6 +6,7 @@ from contextlib import suppress
 import os
 import sys
 import asyncio
+from userbot.utils import admin_cmd
 
 # -- Constants -- #
 IS_SELECTED_DIFFERENT_BRANCH = (
@@ -34,7 +35,8 @@ RESTARTING_APP = "re-starting heroku application"
 # -- Constants End -- #
 
 
-@command(pattern="^.update", outgoing=True)
+#@command(pattern="^.update", outgoing=True)
+@borg.on(admin_cmd(pattern=r"update"))
 async def updater(message):
     try:
         repo = git.Repo()
@@ -138,7 +140,7 @@ def generate_change_log(git_repo, diff_marker):
 
 async def deploy_start(bot, message, refspec, remote):
     await message.edit(RESTARTING_APP)
-    await message.edit("restarted! do `.alive` to check if I am online?\n It will takes approximately 5 mins to update your userbot")
+    await message.edit("restarted! do `.alive` to check if I am online?\nIt will takes approximately 5 mins to update your userbot")
     await remote.push(refspec=refspec)
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
