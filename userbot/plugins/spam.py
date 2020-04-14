@@ -75,7 +75,7 @@ async def spammer(e):
     for i in range(1, counter):
         await e.respond(spam_message)
         await sleep(spamDelay)
-    if BOTLOG:
+    if LOGGER:
         await e.client.send_message(
-            BOTLOG_CHATID, "#DelaySPAM\n"
+            LOGGER_GROUP, "#DelaySPAM\n"
             "DelaySpam was executed successfully")
