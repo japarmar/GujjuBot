@@ -5,7 +5,7 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from userbot import bot, CMD_HELP
-from userbot.utils import 
+from userbot.utils import admin_cmd
 
 #@register(outgoing=True, pattern="^.q(?: |$)(.*)")
 @borg.on(admin_cmd(pattern=r"qbot(?: |$)(.*)"))
