@@ -6,7 +6,7 @@ import os
 import requests
 import math
 
-from uniborg.util import admin_cmd, prettyjson
+from uniborg.util import admin_cmd
 from sample_config import Config
 # ================= 
 Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
