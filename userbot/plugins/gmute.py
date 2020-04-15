@@ -72,7 +72,6 @@ async def list_gmuted(event):
             msg+= "__User:__"+str(c['user_id'])+"\n"
         await event.edit(msg)
     except Exception as e:
-        logging.error(str(e))
         await event.edit("Error: "+str(e))
 
 @command(incoming=True)
