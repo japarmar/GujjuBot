@@ -61,6 +61,20 @@ async def endgmute(event):
     else:
         await event.edit("Successfully ungmuted that person")
 
+@borg.on(admin_cmd(pattern="listgmuted"))
+async def list_gmuted(event):
+    if event.fwd_from:
+        return
+    try:
+        cur = muted.find({})
+        msg = "**G-Muted Users:**\n"
+        for c in cur:
+            msg+= "__User:__"+str(c['user_id'])+"\n"
+        await event.edit(msg)
+    except Exception as e:
+        logging.error(str(e))
+        await event.edit("Error: "+str(e))
+
 @command(incoming=True)
 async def watcher(event):
     if is_muted(event.sender_id, "gmute"):
