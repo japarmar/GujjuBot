@@ -66,7 +66,7 @@ async def list_gmuted(event):
     if event.fwd_from:
         return
     try:
-        cur = gmuted.find({})
+        cur = mute.find({})
         msg = "**G-Muted Users:**\n"
         for c in cur:
             msg+= "__User:__"+str(c['user_id'])+"\n"
