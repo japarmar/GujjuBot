@@ -147,7 +147,7 @@ def admin_cmd(pattern=None, allow_sudo=False,**args):
         args["from_users"] = list(Config.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
-        del args["allow_sudo"]
+        #del args["allow_sudo"]
 
     # error handling condition check
     elif "incoming" in args and not args["incoming"]:
