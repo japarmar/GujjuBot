@@ -129,48 +129,16 @@ def remove_plugin(shortname):
     except:
         raise ValueError
 
-def admin_cmd(pattern=None, **args):
-    stack = inspect.stack()
-    previous_stack_frame = stack[1]
-    file_test = Path(previous_stack_frame.filename)
-    file_test = file_test.stem.replace(".py", "")
-    allow_sudo = args.get("allow_sudo", False)
-
-    # get the pattern from the decorator
+def admin_cmd(pattern=None, allow_sudo=False, args):
     if pattern is not None:
-        if pattern.startswith("\#"):
-            # special fix for snip.py
-            args["pattern"] = re.compile(pattern)
+        args["pattern"] = re.compile(Config.COMMAND_HAND_LER + pattern)
+        if allow_sudo:
+            args["from_users"] = list(Config.SUDO_USERS)
         else:
-            args["pattern"] = re.compile("\." + pattern)
-            cmd = "." + pattern
-            try:
-                CMD_LIST[file_test].append(cmd)
-            except:
-                CMD_LIST.update({file_test: [cmd]})
-
-    args["outgoing"] = True
-    # should this command be available for other users?
-    if allow_sudo:
-        args["from_users"] = list(Config.SUDO_USERS)
-        # Mutually exclusive with outgoing (can only set one of either).
-        args["incoming"] = True
-        del args["allow_sudo"]
-
-    # error handling condition check
-    elif "incoming" in args and not args["incoming"]:
-        args["outgoing"] = True
-
-    # add blacklist chats, UB should not respond in these chats
-    allow_edited_updates = False
-    if "allow_edited_updates" in args and args["allow_edited_updates"]:
-        allow_edited_updates = args["allow_edited_updates"]
-        del args["allow_edited_updates"]
-
-    # check if the plugin should listen for outgoing 'messages'
-    is_message_enabled = True
-
-    return events.NewMessage(**args)
+            args["outgoing"] = True
+        args["blacklist_chats"] = True
+        args["chats"] = list(Config.UB_BLACK_LIST_CHAT)
+        return events.NewMessage(args)
 
 """ Userbot module for managing events.
  One of the main components of the userbot. """
