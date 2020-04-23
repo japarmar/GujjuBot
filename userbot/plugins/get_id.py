@@ -5,7 +5,7 @@ from telethon.utils import pack_bot_file_id
 from userbot.utils import admin_cmd
 
 
-@borg.on(admin_cmd("get_id", allow_sudo=True))
+@borg.on(admin_cmd("get_id"))
 async def _(event):
     if event.fwd_from:
         return
