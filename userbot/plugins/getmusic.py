@@ -23,7 +23,7 @@ def bruh(name):
     os.system("instantmusic -q -s "+name)
     
 
-@borg.on(admin_cmd(pattern="song ?(.*)"))
+@borg.on(admin_cmd(pattern="song ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
