@@ -129,7 +129,7 @@ def remove_plugin(shortname):
     except:
         raise ValueError
 
-def admin_cmd(pattern=None, allow_sudo=True,**args):
+def admin_cmd(pattern=None, allow_sudo=False,**args):
     #pattern = args.get("pattern", None)
     #allow_sudo = args.get("allow_sudo", False)
 
