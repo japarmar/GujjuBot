@@ -5,7 +5,7 @@ import time
 from userbot.utils import admin_cmd
 
 #@command(pattern="^.cmds", outgoing=True)
-@borg.on(admin_cmd(pattern=r"cmds"))
+@borg.on(admin_cmd(pattern=r"cmds", allow_sudo=True))
 async def install(event):
     if event.fwd_from:
         return
