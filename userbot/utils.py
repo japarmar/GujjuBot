@@ -129,9 +129,12 @@ def remove_plugin(shortname):
     except:
         raise ValueError
 
-def admin_cmd(pattern=None, allow_sudo=False,**args):
-    #pattern = args.get("pattern", None)
-    #allow_sudo = args.get("allow_sudo", False)
+def admin_cmd(pattern=None, **args):
+    stack = inspect.stack()
+    previous_stack_frame = stack[1]
+    file_test = Path(previous_stack_frame.filename)
+    file_test = file_test.stem.replace(".py", "")
+    allow_sudo = args.get("allow_sudo", False)
 
     # get the pattern from the decorator
     if pattern is not None:
@@ -139,7 +142,12 @@ def admin_cmd(pattern=None, allow_sudo=False,**args):
             # special fix for snip.py
             args["pattern"] = re.compile(pattern)
         else:
-            args["pattern"] = re.compile(Config.COMMAND_HAND_LER + pattern)
+            args["pattern"] = re.compile("\." + pattern)
+            cmd = "." + pattern
+            try:
+                CMD_LIST[file_test].append(cmd)
+            except:
+                CMD_LIST.update({file_test: [cmd]})
 
     args["outgoing"] = True
     # should this command be available for other users?
@@ -147,19 +155,13 @@ def admin_cmd(pattern=None, allow_sudo=False,**args):
         args["from_users"] = list(Config.SUDO_USERS)
         # Mutually exclusive with outgoing (can only set one of either).
         args["incoming"] = True
-        #del args["allow_sudo"]
+        del args["allow_sudo"]
 
     # error handling condition check
     elif "incoming" in args and not args["incoming"]:
         args["outgoing"] = True
 
     # add blacklist chats, UB should not respond in these chats
-    args["blacklist_chats"] = True
-    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
-    if len(black_list_chats) > 0:
-        args["chats"] = black_list_chats
-
-    # check if the plugin should allow edited updates
     allow_edited_updates = False
     if "allow_edited_updates" in args and args["allow_edited_updates"]:
         allow_edited_updates = args["allow_edited_updates"]
