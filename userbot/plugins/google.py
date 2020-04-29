@@ -16,6 +16,7 @@ from urllib.error import HTTPError
 from google_images_download import google_images_download
 from gsearch.googlesearch import search
 from userbot.utils import admin_cmd
+from search_engine_parser import GoogleSearch
 
 
 def progress(current, total):
