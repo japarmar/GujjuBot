@@ -10,4 +10,4 @@ async def _(event):
     await event.edit("My Ping Is!")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await event.edit("Pong!\n{}".format(ms))
+    await event.edit("My Ping Is!\n{}".format(ms))
