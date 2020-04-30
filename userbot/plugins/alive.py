@@ -17,4 +17,4 @@ async def amireallyalive(alive):
                      f"`My peru owner`: {DEFAULTUSER}\n"
                      "`Telethon version: 6.9.0\nPython: 3.7.3\nfork by:` @IAm_DarK_Angel\n"
                      "`Database Status: Databases functioning normally!\n\nAlways with you, my master!\n`"
-                     "[Sorry No Deploy Me](https://github.com/japa")
+                     "[Sorry No Deploy Me](https://github.com/japa)")
