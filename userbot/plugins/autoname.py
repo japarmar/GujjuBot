@@ -10,7 +10,7 @@ from userbot import AUTONAME
 
 
 DEL_TIME_OUT = 60
-DEFAULTUSER = str(AUTONAME) if AUTONAME else "⫷ƊarkͥAnͣgͫel⫸"
+DEFAULTUSER = str(AUTONAME) if AUTONAME else "🤖⫷ƊarkͥAnͣgͫel⫸🤖"
 
 
 @borg.on(admin_cmd(pattern="autoname"))  # pylint:disable=E0602
@@ -18,8 +18,8 @@ async def _(event):
     if event.fwd_from:
         return
     while True:
-        DM = time.strftime("%d-%m-%y")
-        HM = time.strftime("%H:%M")
+        DM = time.strftime("📆%d-%m-%y")
+        HM = time.strftime("⏰%H:%M")
         name = f"{HM} {DEFAULTUSER} {DM}"
         logger.info(name)
         try:
