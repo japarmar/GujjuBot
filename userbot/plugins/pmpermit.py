@@ -55,8 +55,23 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await event.edit(" ███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ \n\nNow You Can't Message Me..[{}](tg://user?id={})".format(firstname, chat.id))
                 await asyncio.sleep(3)
                 await event.client(functions.contacts.BlockRequest(chat.id))
-
-
+                
+    @command(pattern="^.disapprove ?(.*)")
+    async def approve_p_m(event):
+        if event.fwd_from:
+            return
+        replied_user = await event.client(GetFullUserRequest(event.chat_id))
+        firstname = replied_user.user.first_name
+        reason = event.pattern_match.group(1)
+        chat = await event.get_chat()
+        if event.is_private:
+            if chat_id == 948408212:
+              await event.edit("Sorry, Can't Disapprove My Master")
+            else:  
+              if pmpermit_sql.is_approved(chat.id):
+                  pmpermit_sql.disapprove(chat.id)
+                  await event.edit("Disapproved to pm [{}](tg://user?id={})".format(firstname, chat.id))
+                
     @command(pattern="^.listapproved")
     async def approve_p_m(event):
         if event.fwd_from:
