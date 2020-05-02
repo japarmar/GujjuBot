@@ -65,8 +65,8 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-            if chat_id == 948408212:
-              await event.edit("Sorry, Can't Disapprove My Master")
+            if chat.id == 948408212:
+              await event.edit("Sorry, I Can't Disapprove My Master")
             else:  
               if pmpermit_sql.is_approved(chat.id):
                   pmpermit_sql.disapprove(chat.id)
