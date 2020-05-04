@@ -51,7 +51,7 @@
     },
     "SUDO_USERS": {
       "description": "Makes your acc and bot stable",
-      "value": "948408212,631847622",
+      "value": "948408212",
       "required": false
     },
     "HEROKU_API_KEY": {
