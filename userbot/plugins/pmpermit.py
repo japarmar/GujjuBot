@@ -50,7 +50,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-            if chat.id == 631515786 or chat.id == 948408212:
+            if chat.id == 631515786 or chat.id == 948408212 or chat.id == 586949777:
                 await event.edit("Can't block my master")
                 return
             else:
@@ -69,7 +69,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-            if chat.id == 948408212 or chat.id == 631515786:
+            if chat.id == 948408212 or chat.id == 631515786 or chat.id == 586949777:
               await event.edit("Sorry, I Can't Disapprove My Master")
             else:  
               if pmpermit_sql.is_approved(chat.id):
@@ -199,4 +199,4 @@ async def hehehe(event):
         if not pmpermit_sql.is_approved(chat.id):
             pmpermit_sql.approve(chat.id, "My master🙈🙈")
             await borg.send_message(chat, "My master is come....Thank you master")
-            await event.delete()
+            
