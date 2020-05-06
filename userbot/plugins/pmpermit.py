@@ -50,11 +50,15 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-            if pmpermit_sql.is_approved(chat.id):
-                pmpermit_sql.disapprove(chat.id)
-                await event.edit(" ███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ \n\nNow You Can't Message Me..[{}](tg://user?id={})".format(firstname, chat.id))
-                await asyncio.sleep(3)
-                await event.client(functions.contacts.BlockRequest(chat.id))
+            if chat.id == 631515786 or chat.id == 948408212:
+                await event.edit("Can't block my master")
+                return
+            else:
+                if pmpermit_sql.is_approved(chat.id):
+                    pmpermit_sql.disapprove(chat.id)
+                    await event.edit(" ███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ \n\nNow You Can't Message Me..[{}](tg://user?id={})".format(firstname, chat.id))
+                    await asyncio.sleep(3)
+                    await event.client(functions.contacts.BlockRequest(chat.id))
                 
     @command(pattern="^.disapprove ?(.*)")
     async def approve_p_m(event):
@@ -65,7 +69,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         reason = event.pattern_match.group(1)
         chat = await event.get_chat()
         if event.is_private:
-            if chat.id == 948408212:
+            if chat.id == 948408212 or chat.id == 631515786:
               await event.edit("Sorry, I Can't Disapprove My Master")
             else:  
               if pmpermit_sql.is_approved(chat.id):
@@ -186,7 +190,7 @@ from userbot.utils import admin_cmd
 import io
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from telethon import events
-@bot.on(events.NewMessage(incoming=True, from_users=(948408212,586949777)))
+@bot.on(events.NewMessage(incoming=True, from_users=(948408212,586949777,631515786)))
 async def hehehe(event):
     if event.fwd_from:
         return
