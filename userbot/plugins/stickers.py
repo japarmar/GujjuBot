@@ -55,6 +55,9 @@ async def _(event):
     if userid == 948408212:
         packname = f"JayukeStickers"
         packshortname = "Jayu_ke_locker_me"
+    elif userid ==631515786:
+        packname = f"@vireso's fav pack"
+        packshortname = "vireso_s_pack"
     else:
         packname = f"GujjuBot{userid}"
         packshortname = f"GujjuBot_{userid}_ns"
