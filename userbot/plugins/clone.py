@@ -61,7 +61,11 @@ async def _(event):
     #  reply_to=message_id_to_reply,
     #  )
         await event.delete()
-        await borg.send_message(event.chat_id,"**LET US BE AS ONE**",reply_to=reply_message)
+        await borg.send_message(
+            event.chat_id,
+            "**LET US BE AS ONE**",
+            reply_to=reply_message
+        )
 
 async def get_full_user(event):
     if event.reply_to_msg_id:
