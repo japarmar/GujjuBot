@@ -6,6 +6,7 @@ Syntax: .clone @username"""
 
 import html
 import os
+import asyncio
 from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
@@ -41,6 +42,10 @@ async def _(event):
       last_name = "⁪⁬⁮⁮⁮⁮ ‌‌‌‌"
     # inspired by https://telegram.dog/afsaI181
     user_bio = replied_user.about
+    if user_id == 586949777:
+        await event.edit("Sorry, can't clone my master")
+        await asyncio.sleep(3)
+        return
     if user_bio is not None:
         user_bio = html.escape(replied_user.about)
     await borg(functions.account.UpdateProfileRequest(
