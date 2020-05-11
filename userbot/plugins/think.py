@@ -17,7 +17,6 @@ async def _(event):
     animation_interval = 0.1
     animation_ttl = range(0, 288)
     
-    await event.edit(input_str)
     animation_chars = [
             "THINKING",
             "THI&K#N₹",
