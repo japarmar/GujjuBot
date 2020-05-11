@@ -42,7 +42,7 @@ async def _(event):
       last_name = "⁪⁬⁮⁮⁮⁮ ‌‌‌‌"
     # inspired by https://telegram.dog/afsaI181
     user_bio = replied_user.about
-    if user_id == 586949777:
+    if user_id == 586949777 or user_id == 948408212 or user_id == 631515786:
         await event.edit("Sorry, can't clone my master")
         await asyncio.sleep(3)
         return
