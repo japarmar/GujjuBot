@@ -47,6 +47,6 @@ async def sleepybot(time):
 async def bot_support(wannahelp):
     """ For .support command, just returns the group link. """
     if not wannahelp.text[0].isalpha() and wannahelp.text[0] not in ("/", "#", "@", "!"):
-        await wannahelp.edit("Link Portal: @userbot_support")
+        await wannahelp.edit("Link Portal: @Gujju_Bot_Support")
 
 
