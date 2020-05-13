@@ -61,7 +61,7 @@ async def _(event):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
-            await event.edit(f"My MASTER is not available RIGHT NOW, and He is {reason}")
+            await event.edit(f"My MASTER is not available RIGHT NOW, and Reason is {reason}")
         else:
             await event.edit(f"My MASTER is Unavailable at this MOMENT")
         await asyncio.sleep(5)
@@ -69,7 +69,7 @@ async def _(event):
         try:
             await borg.send_message(  # pylint:disable=E0602
                 Config.PRIVATE_GROUP_BOT_API_ID,  # pylint:disable=E0602
-                f"My MASTER is not available RIGHT NOW, and He is {reason}"
+                f"My MASTER is not available RIGHT NOW, and Reason is is {reason}"
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             logger.warn(str(e))  # pylint:disable=E0602
