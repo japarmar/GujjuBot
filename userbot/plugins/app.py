@@ -21,10 +21,12 @@ from telethon import *
 from userbot import CMD_HELP
 
 from userbot.events import register
+from userbot.utils import admin_cmd
 
 
 
-@register(pattern="^.app (.*)")
+#@register(pattern="^.app (.*)")
+@borg.on(admin_cmd(pattern="app (.*)"))
 
 async def apk(e):
 
@@ -80,8 +82,8 @@ async def apk(e):
 
 
 
-@register(pattern="^.appr (.*)")
-
+#@register(pattern="^.appr (.*)")
+@borg.on(admin_cmd(pattern="appr (.*)"))
 async def apkr(e):
 
     try:
