@@ -258,28 +258,3 @@ async def on_all_snip_delete(event):
 
 
 
-CMD_HELP.update({
-
-    "filters":
-
-    ".listfilters\
-
-    \nUsage: Lists all active (of your userbot) filters in a chat.\
-
-    \n\n.savefilter  reply to a message with .savefilter <keyword>\
-
-    \nUsage: Saves the replied message as a reply to the 'keyword'.\
-
-    \nThe bot will reply to the message whenever 'keyword' is mentioned.\
-
-    \nWorks with everything from files to stickers.\
-
-    \n\n.clearfilter <keyword>\
-
-    \nUsage: Stops the specified keyword.\
-
-    \n\n.clearallfilters \
-
-    \nUsage: Removes all filters of your userbot in the chat."
-
-})
