@@ -1,41 +1,68 @@
-import os
-from datetime import datetime
-from PIL import Image, ImageDraw, ImageFont
-from pySmartDL import SmartDL
+#And Thanks To The Creator Of Autopic This Script Was Made from Snippets From That Script
+
+#Usage .autodp Im Not Responsible For Any Ban caused By This
+
+import requests , re , random 
+
+import urllib , os 
+
 from telethon.tl import functions
-import asyncio
-import shutil
+
+from datetime import datetime
+
+from PIL import Image, ImageDraw, ImageFont
+
 from userbot.utils import admin_cmd
 
-FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+import asyncio
 
-#@command(pattern="^.autopic", outgoing=True)
-@borg.on(admin_cmd(pattern=r"autopic"))
-async def autopic(event):
-    downloaded_file_name = "userbot/original_pic.png"
-    downloader = SmartDL(Var.DOWNLOAD_PFP_URL_CLOCK, downloaded_file_name, progress_bar=False)
-    downloader.start(blocking=False)
-    photo = "userbot/photo_pfp.png"
-    while not downloader.isFinished():
-        place_holder = None
-    counter = -30
+from time import sleep
+
+COLLECTION_STRING = [
+
+  "cute-cats-and-dogs-wallpaper",
+
+  "cute-dogs-wallpapers"
+]
+
+async def animepp():
+
+    os.system("rm -rf donot.jpg")
+
+    rnd = random.randint(0, len(COLLECTION_STRING) - 1)
+
+    pack = COLLECTION_STRING[rnd]
+
+    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+
+    f = re.compile('/\w+/full.+.jpg')
+
+    f = f.findall(pc)
+
+    fy = "http://getwallpapers.com"+random.choice(f)
+
+    print(fy)
+
+    if not os.path.exists("f.ttf"):
+
+        urllib.request.urlretrieve("https://github.com/rebel6969/mym/raw/master/Rebel-robot-Regular.ttf","f.ttf")
+
+    urllib.request.urlretrieve(fy,"donottouch.jpg")
+
+@borg.on(admin_cmd(pattern="autopic ?(.*)"))
+
+async def main(event):
+
+    await event.edit("**Starting Doggo Profile Pic...\n\nDone !!! Check Your DP in 5 seconds. By [GujjuBot](https://github.com/japarmar/GujjuBot)**")
+
     while True:
-        shutil.copy(downloaded_file_name, photo)
-        im = Image.open(photo)
-        file_test = im.rotate(counter, expand=False).save(photo, "PNG")
-        current_time = datetime.now().strftime("⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡ \n  Time: %H:%M \n  Date: %d.%m.%y \n⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡")
-        img = Image.open(photo)
-        drawn_text = ImageDraw.Draw(img)
-        fnt = ImageFont.truetype(FONT_FILE_TO_USE, 30)
-        drawn_text.text((95, 250), current_time, font=fnt, fill=(255, 255, 255))
-        img.save(photo)
-        file = await bot.upload_file(photo)  # pylint:disable=E0602
-        try:
-            await bot(functions.photos.UploadProfilePhotoRequest(  # pylint:disable=E0602
-                file
-            ))
-            os.remove(photo)
-            counter -= 30
-            await asyncio.sleep(60)
-        except:
-            return
+
+        await animepp()
+
+        file = await event.client.upload_file("donottouch.jpg")  
+
+        await event.client(functions.photos.UploadProfilePhotoRequest( file))
+
+        os.system("rm -rf donottouch.jpg")
+
+        await asyncio.sleep(600) #Edit this to your required needs
