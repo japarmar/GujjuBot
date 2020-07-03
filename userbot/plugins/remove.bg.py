@@ -65,7 +65,7 @@ async def _(event):
             await borg.send_file(
                 event.chat_id,
                 remove_bg_image,
-                force_document=False,
+                force_document=True,
                 supports_streaming=False,
                 allow_cache=False,
                 reply_to=message_id
