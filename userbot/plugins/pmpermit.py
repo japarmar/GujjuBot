@@ -77,6 +77,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                   await event.edit("Disapproved to pm [{}](tg://user?id={})".format(firstname, chat.id))
                 
     @command(pattern="^.listapproved")
+    @command(pattern="^.sudolistapproved", allow_sudo=True)
     async def approve_p_m(event):
         if event.fwd_from:
             return
