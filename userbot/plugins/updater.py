@@ -140,7 +140,7 @@ def generate_change_log(git_repo, diff_marker):
 
 async def deploy_start(bot, message, refspec, remote):
     await message.edit(RESTARTING_APP)
-    await message.edit("Changing Userbot from GujjuBot to Jarvis,Please Wait for 5 mins then do .alive to check if i'm alive or not")
+    await message.edit("Updating the Userbot.... Do .alive after 5 mins to check if i'm alive or not..")
     await remote.push(refspec=refspec)
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
