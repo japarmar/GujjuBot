@@ -17,8 +17,10 @@ Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 
 
-@register(outgoing=True, pattern=r"^\.(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)")
-@register(outgoing=True, pattern=r"^\.(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", allow_sudo=True)
+//@register(outgoing=True, pattern=r"^\.(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)")
+
+@borg.on(admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)",))
+@borg.on(admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", allow_sudo=True))
 async def variable(var):
     """
         Manage most of ConfigVars setting, set new var, get current var,
