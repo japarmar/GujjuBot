@@ -134,7 +134,6 @@ async def on_snip(event):
 
 @command(pattern="^.savefilter (.*)")
 
-@command(pattern="^.sudosavefilter (.*)", allow_sudo=True)
 async def on_snip_save(event):
 
     name = event.pattern_match.group(1)
@@ -182,7 +181,6 @@ async def on_snip_save(event):
 
 
 @command(pattern="^.listfilters$")
-@command(pattern="^.sudolistfilters$", allow_sudo=True)
 
 async def on_snip_list(event):
 
@@ -233,7 +231,6 @@ async def on_snip_list(event):
 
 
 @command(pattern="^.clearfilter (.*)")
-@command(pattern="^.sudoclearfilter (.*)", allow_sudo=True)
 async def on_snip_delete(event):
 
     name = event.pattern_match.group(1)
@@ -247,7 +244,6 @@ async def on_snip_delete(event):
 
 
 @command(pattern="^.clearallfilters$")
-@command(pattern="^.sudoclearallfilters$", allow_sudo=True)
 
 async def on_all_snip_delete(event):
 
