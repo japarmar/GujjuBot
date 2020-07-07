@@ -18,3 +18,9 @@ async def amireallyalive(alive):
                      "`Telethon version: 6.9.0\nPython: 3.7.3\nfork by:` @Halto_Tha\n"
                      "`Database Status: Databases functioning normally!\n\nAlways with you, my master!\n`"
                      "[Deploy this userbot Now](https://github.com/japarmar/GujjuBot)")
+
+@borg.on(admin_cmd(pattern=r"sudoalive", allow_sudo=True))
+async def amireallyalive(alive):
+    """ For .alive command, check if the bot is running.  """
+    await alive.edit("`Jinda Hu Malik")
+
