@@ -198,8 +198,8 @@ async def hehehe(event):
     if event.is_private:
         if not pmpermit_sql.is_approved(chat.id):
           if chat.id in PREV_REPLY_MESSAGE:
-                    await PREV_REPLY_MESSAGE[chat.id].delete()
-                    del PREV_REPLY_MESSAGE[chat.id]
+            await PREV_REPLY_MESSAGE[chat.id].delete()
+            del PREV_REPLY_MESSAGE[chat.id]
           pmpermit_sql.approve(chat.id, "My master🙈🙈")
           await borg.send_message(chat, "My master is come....Thank you master")
     
