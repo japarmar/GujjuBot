@@ -31,8 +31,16 @@ async def _(event):
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
 
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
+        
+    if input_str:
 
-    if event.reply_to_msg_id:
+        directory_name = input_str
+
+        zipfile.ZipFile(directory_name + '.zip', 'w', zipfile.ZIP_DEFLATED).write(directory_name)
+
+        await event.edit("Local file compressed to `{}`".format(directory_name + ".zip"))
+
+    elif event.reply_to_msg_id:
 
         reply_message = await event.get_reply_message()
 
@@ -91,11 +99,3 @@ async def _(event):
         except Exception as e:  # pylint:disable=C0103,W0703
 
             await mone.edit(str(e))
-
-    elif input_str:
-
-        directory_name = input_str
-
-        zipfile.ZipFile(directory_name + '.zip', 'w', zipfile.ZIP_DEFLATED).write(directory_name)
-
-        await event.edit("Local file compressed to `{}`".format(directory_name + ".zip"))
