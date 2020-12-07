@@ -104,7 +104,16 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await event.delete()
         else:
             await event.edit(APPROVED_PMs)
-
+    
+	  @command(pattern="^.dclean")
+	  async def approve_p_m(event):
+		  approved_users = pmpermit_sql.get_all_approved()
+		  if len(approved_users)>0:
+			  for a_user in approved_users:
+			    pmpermit_sql.disapprove(a_user.chat_id)
+			  await event.edit("Disapproved All")
+		  else:
+			  await event.edit("It's already empty")
 
     @bot.on(events.NewMessage(incoming=True))
     async def on_new_private_message(event):
