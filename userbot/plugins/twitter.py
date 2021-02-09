@@ -29,7 +29,7 @@ def deEmojify(inputString: str) -> str:
     return re.sub(IF_EMOJI, "", inputString)
 
 
-@borg.on(admin_cmd(pattern="usertweet(?: |$)(.*)"))
+@borg.on(admin_cmd(pattern="tweet(?: |$)(.*)"))
 async def teletweet(telebot):
     # """Creates random anime sticker!"""
     what = telebot.pattern_match.group(1)
@@ -67,7 +67,7 @@ async def tweet(uname, mssg):
 # by @its_xditya
 
 
-@borg.on(admin_cmd(pattern="tweet ?(.*)"))
+@borg.on(admin_cmd(pattern="usertweet ?(.*)"))
 async def handler(event):
     if event.fwd_from:
         return
