@@ -82,6 +82,18 @@ if Var.PRIVATE_GROUP_ID is not None:
               await event.edit("Disapproved to pm")
             else:
               await event.edit("Already not approved to pm")
+    
+    @command(pattern="^.rremove_all ?(.*)")
+    async def approve_p_m(event):
+        if event.fwd_from:
+            return
+        approved_users = pmpermit_sql.get_all_approved()
+        if len(approved_users) > 0:
+            for a_user in approved_users:
+                pmpermit_sql.disapprove(a_user.chat_id)
+            await event.edit("Disapproved All")
+        else:
+            await event.edit("no Approved PMs (yet)") 
                 
     @command(pattern="^.listapproved")
     async def approve_p_m(event):
