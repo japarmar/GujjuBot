@@ -83,7 +83,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             else:
               await event.edit("Already not approved to pm")
     
-    @command(pattern="^.rremove_all ?(.*)")
+    @command(pattern="^.remove_all ?(.*)")
     async def approve_p_m(event):
         if event.fwd_from:
             return
