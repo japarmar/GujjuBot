@@ -64,17 +64,24 @@ if Var.PRIVATE_GROUP_ID is not None:
     async def approve_p_m(event):
         if event.fwd_from:
             return
-        replied_user = await event.client(GetFullUserRequest(event.chat_id))
-        firstname = replied_user.user.first_name
-        reason = event.pattern_match.group(1)
-        chat = await event.get_chat()
         if event.is_private:
+            replied_user = await event.client(GetFullUserRequest(event.chat_id))
+            firstname = replied_user.user.first_name
+            reason = event.pattern_match.group(1)
+            chat = await event.get_chat()
             if chat.id == 948408212 or chat.id == 631515786 or chat.id == 586949777:
               await event.edit("Sorry, I Can't Disapprove My Master")
             else:  
               if pmpermit_sql.is_approved(chat.id):
                   pmpermit_sql.disapprove(chat.id)
                   await event.edit("Disapproved to pm [{}](tg://user?id={})".format(firstname, chat.id))
+        else:
+            user_id = event.pattern_match.group(1)
+            if pmpermit_sql.is_approved(user_id):
+              pmpermit_sql.disapprove(user_id)
+              await event.edit("Disapproved to pm")
+            else:
+              await event.edit("Already not approved to pm")
                 
     @command(pattern="^.listapproved")
     async def approve_p_m(event):
