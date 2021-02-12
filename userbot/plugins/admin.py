@@ -613,7 +613,7 @@ async def rm_deletedacc(show):
 
 
 #@register(outgoing=True, pattern="^.adminlist$")
-@borg.on(admin_cmd(pattern=r"adminlist"))
+@borg.on(admin_cmd(pattern=r"adminlist || admins"))
 @errors_handler
 async def get_admin(show):
     """ For .admins command, list all of the admins of the chat. """
