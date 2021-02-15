@@ -33,6 +33,7 @@ psycopg2-binary
 PyLyrics
 pySmartDL
 pybase64>=0.4.0
+opencv-contrib-python-headless
 lyricsgenius
 tswift
 instantmusic
