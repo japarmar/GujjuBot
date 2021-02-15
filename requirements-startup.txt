@@ -56,4 +56,4 @@ urbandict>=0.5
 wikipedia>=1.4.0
 youtube-dl
 validators
-cv2
+opencv-python
