@@ -50,7 +50,7 @@ img39=("https://telegra.ph/file/f7b4f5813f063c5f8b3ed.mp4")
 img40=("https://telegra.ph/file/04cdec4e301a311b21584.mp4")
     
     
-@borg.on(admin_cmd(outgoing=True, pattern="baby"))
+@borg.on(admin_cmd(outgoing=True, pattern="bbaby"))
 
 async def _(event):
 
@@ -60,126 +60,126 @@ async def _(event):
     await asyncio.sleep(0.9)
     x=(random.randrange(0,40))
     if x==1:
-        await borg.send_file(event.chat_id,img1)
+        await borg.send_file(event.chat_id,img1,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==2:
-        await borg.send_file(event.chat_id,img2)
+        await borg.send_file(event.chat_id,img2,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==3:
-        await borg.send_file(event.chat_id,img3)
+        await borg.send_file(event.chat_id,img3,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==4:
-        await borg.send_file(event.chat_id,img3)
+        await borg.send_file(event.chat_id,img8,reply_to=event.message.reply_to_msg_id)
         await event.delete()        
     if x==5:
-        await borg.send_file(event.chat_id,img4)
+        await borg.send_file(event.chat_id,img4,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==6:
-        await borg.send_file(event.chat_id,img5)
+        await borg.send_file(event.chat_id,img5,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==7:
-        await borg.send_file(event.chat_id,img6)
+        await borg.send_file(event.chat_id,img6,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==8:
-        await borg.send_file(event.chat_id,img7)
+        await borg.send_file(event.chat_id,img7,reply_to=event.message.reply_to_msg_id)
         await event.delete()        
     if x==9:
-        await borg.send_file(event.chat_id,img9)
+        await borg.send_file(event.chat_id,img9,reply_to=event.message.reply_to_msg_id)
         await event.delete()        
     if x==10:
-        await borg.send_file(event.chat_id,img10)
+        await borg.send_file(event.chat_id,img10,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==11:
-        await borg.send_file(event.chat_id,img11)
+        await borg.send_file(event.chat_id,img11,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==12:
-        await borg.send_file(event.chat_id,img12)
+        await borg.send_file(event.chat_id,img12,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==13:
-        await borg.send_file(event.chat_id,img13)
+        await borg.send_file(event.chat_id,img13,reply_to=event.message.reply_to_msg_id)
         await event.delete()         
     if x==14:
-        await borg.send_file(event.chat_id,img14)
+        await borg.send_file(event.chat_id,img14,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==15:
-        await borg.send_file(event.chat_id,img15)
+        await borg.send_file(event.chat_id,img15,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==16.:
-        await borg.send_file(event.chat_id,img16)
+        await borg.send_file(event.chat_id,img16,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==0:
-        await borg.send_file(event.chat_id,img0)
+        await borg.send_file(event.chat_id,img0,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==17:
-        await borg.send_file(event.chat_id,img17)
+        await borg.send_file(event.chat_id,img17,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==18:
-        await borg.send_file(event.chat_id,img18)
+        await borg.send_file(event.chat_id,img18,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==19:
-        await borg.send_file(event.chat_id,img19)
+        await borg.send_file(event.chat_id,img19,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==20:
-        await borg.send_file(event.chat_id,img20)
+        await borg.send_file(event.chat_id,img20,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==21:
-        await borg.send_file(event.chat_id,img21)
+        await borg.send_file(event.chat_id,img21,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==22:
-        await borg.send_file(event.chat_id,img22)
+        await borg.send_file(event.chat_id,img22,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==23:
-        await borg.send_file(event.chat_id,img23)
+        await borg.send_file(event.chat_id,img23,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==24:
-        await borg.send_file(event.chat_id,img24)
+        await borg.send_file(event.chat_id,img24,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==25:
-        await borg.send_file(event.chat_id,img25)
+        await borg.send_file(event.chat_id,img25,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==26:
-        await borg.send_file(event.chat_id,img26)
+        await borg.send_file(event.chat_id,img26,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==27:
-        await borg.send_file(event.chat_id,img27)
+        await borg.send_file(event.chat_id,img27,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==28:
-        await borg.send_file(event.chat_id,img28)
+        await borg.send_file(event.chat_id,img28,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==29:
-        await borg.send_file(event.chat_id,img29)
+        await borg.send_file(event.chat_id,img29,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==30:
-        await borg.send_file(event.chat_id,img30)
+        await borg.send_file(event.chat_id,img30,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==31:
-        await borg.send_file(event.chat_id,img31)
+        await borg.send_file(event.chat_id,img31,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==32:
-        await borg.send_file(event.chat_id,img32)
+        await borg.send_file(event.chat_id,img32,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==33:
-        await borg.send_file(event.chat_id,img33)
+        await borg.send_file(event.chat_id,img33,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==34:
-        await borg.send_file(event.chat_id,img34)
+        await borg.send_file(event.chat_id,img34,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==35:
-        await borg.send_file(event.chat_id,img35)
+        await borg.send_file(event.chat_id,img35,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==36:
-        await borg.send_file(event.chat_id,img36)
+        await borg.send_file(event.chat_id,img36,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==37:
-        await borg.send_file(event.chat_id,img37)
+        await borg.send_file(event.chat_id,img37,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==38:
-        await borg.send_file(event.chat_id,img38)
+        await borg.send_file(event.chat_id,img38,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==39:
-        await borg.send_file(event.chat_id,img39)
+        await borg.send_file(event.chat_id,img39,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     if x==40:
-        await borg.send_file(event.chat_id,img40)
+        await borg.send_file(event.chat_id,img40,reply_to=event.message.reply_to_msg_id)
         await event.delete()
     # don't copy please😭
