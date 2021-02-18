@@ -50,7 +50,7 @@ img39=("https://telegra.ph/file/f7b4f5813f063c5f8b3ed.mp4")
 img40=("https://telegra.ph/file/04cdec4e301a311b21584.mp4")
     
     
-@borg.on(admin_cmd(outgoing=True, pattern="bbaby"))
+@borg.on(admin_cmd(outgoing=True, pattern="baby"))
 
 async def _(event):
 
