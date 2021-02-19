@@ -200,7 +200,7 @@ async def nekobot(event):
         else:
             await event.edit("send your text to modi so he can tweet.")
             return
-    await event.edit("Requesting modi to tweet...")
+    await event.edit("Requesting biden to tweet...")
     try:
         isee = str(
             pybase64.b64decode("Sm9pbkNoYW5uZWxSZXF1ZXN0KCdAVGVsZUJvdEhlbHAnKQ==")
@@ -209,7 +209,7 @@ async def nekobot(event):
     except BaseException:
         pass
     text = deEmojify(text)
-    eventfile = await moditweet(text)
+    eventfile = await biden(text)
     await event.client.send_file(event.chat_id, eventfile, reply_to=reply_to_id)
     await event.delete()
 
