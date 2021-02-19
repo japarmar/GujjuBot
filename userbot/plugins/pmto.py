@@ -32,6 +32,7 @@ async def pmto(event):
         try:
             await borg.send_message(chat_id, msg)
             await event.edit("Message sent!")
+            await asyncio.sleep(3)
             await event.delete()
         except BaseException:
             await event.edit("Something went wrong.")
