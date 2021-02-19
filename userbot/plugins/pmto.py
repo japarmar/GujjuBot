@@ -11,6 +11,7 @@ async def pmto(event):
         try:
             await borg.send_message(chat_id, msg)
             await event.edit("Message sent!")
+            await event.delete()
         except BaseException:
             await event.edit("Something went wrong.")
     else:
@@ -29,5 +30,6 @@ async def pmto(event):
         try:
             await borg.send_message(chat_id, msg)
             await event.edit("Message sent!")
+            await event.delete()
         except BaseException:
             await event.edit("Something went wrong.")
