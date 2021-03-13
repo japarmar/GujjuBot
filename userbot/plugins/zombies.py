@@ -108,7 +108,7 @@ async def rm_deletedacc(show):
             await show.client(
                 EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
             del_u += 1
-            await show.edit("Deleted **{del_u}** accounts and cant deleted **{del_a}** accounts")
+            
 
 
     if del_u > 0:
