@@ -75,6 +75,8 @@ if Var.PRIVATE_GROUP_ID is not None:
               if pmpermit_sql.is_approved(chat.id):
                   pmpermit_sql.disapprove(chat.id)
                   await event.edit("Disapproved to pm [{}](tg://user?id={})".format(firstname, chat.id))
+                  await asyncio.sleep(3)
+                  await event.delete()
         else:
             user_id = event.pattern_match.group(1)
             if pmpermit_sql.is_approved(user_id):
