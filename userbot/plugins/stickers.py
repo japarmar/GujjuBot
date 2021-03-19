@@ -52,7 +52,7 @@ async def _(event):
     userid = event.from_id
     #packname = f"JayukeStickers"
     #packshortname = f"GujjuBot_{userid}_ns"  # format: Uni_Borg_userid
-    if userid == 948408212:
+    if userid == 1637626702:
         packname = f"JayukeStickers"
         packshortname = "Jayu_ke_locker_me"
     elif userid ==631515786:
@@ -71,7 +71,7 @@ async def _(event):
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
         packname = f"{userid}'s @AnimatedStickersGroup"
-        if userid == 948408212:
+        if userid == 1637626702:
             packshortname = "Jayu_Animated"
         else:
             packshortname = f"GujjuBot_{userid}_an" # format: Uni_Borg_userid
