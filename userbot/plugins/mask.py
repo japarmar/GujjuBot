@@ -37,5 +37,5 @@ async def _(event):
                 "```can you kindly disable your forward privacy settings for good?```",
             )
         else:
-            await borg.send_file(event.chat_id, response.message.media)
+            await borg.send_file(event.chat_id, response.message.media,reply_to=event.message.reply_to_msg_id)
             await event.delete()
