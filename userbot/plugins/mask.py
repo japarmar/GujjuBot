@@ -38,3 +38,4 @@ async def _(event):
             )
         else:
             await borg.send_file(event.chat_id, response.message.media)
+            await event.delete()
