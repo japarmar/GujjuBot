@@ -29,7 +29,7 @@ async def hehehe(event):
         except Exception as e:
             await borg.send_message(chat,"Error occured!\nError is " + str(e),reply_to=event.message)
         else:
-            await borg.send_message(chat,"Successfully gmuted that person",reply_to=event.message)
+            await borg.send_message(chat,"Successfully gmuted that person by piyudidi😘😘",reply_to=event.message)
             
     elif message == ".ungmute":
         if event.fwd_from:
@@ -50,4 +50,4 @@ async def hehehe(event):
         except Exception as e:
             await borg.send_message(chat,"Error occured!\nError is " + str(e),reply_to=event.message)
         else:
-            await borg.send_message(chat,"Successfully unmuted that person",reply_to=event.message)
+            await borg.send_message(chat,"Successfully unmuted that person by piyudidi😘😘",reply_to=event.message)
