@@ -14,9 +14,9 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars 
 USER_BOT_WARN_ZERO = "`You were spamming my peru master's inbox, henceforth your retarded lame ass has been blocked by my master's userbot.` "
 USER_BOT_NO_WARN = ("[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀](tg://user?id=948408212)\n\n"
                     "`Hello, this is Protected Security Service.You have found your way here to my master,`"
-                    f"{DEFAULTUSER}`'s inbox.\n\n"
-                    "you have to write everything in one message only. If you haven't do it then you'll be automatically blocked.\n\n"
-                    "** Send** `/start` ** so that we can decide why you're here.**`")
+                    f"{DEFAULTUSER}`'s inbox.`\n\n"
+                    "`you have to write everything in one message only. If you haven't do it then you'll be automatically blocked.`\n\n"
+                    "** Send** `/start` ** so that we can decide why you're here.**")
 
 
 if Var.PRIVATE_GROUP_ID is not None:
