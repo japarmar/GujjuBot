@@ -11,6 +11,8 @@ from telethon.tl.functions.messages import GetFullChatRequest
 from userbot import *
 from userbot.utils import admin_cmd
 
+import asyncio
+
 
 async def get_chatinfo(event):
     chat = event.pattern_match.group(1)
@@ -98,6 +100,7 @@ async def get_users(event):
             await rkp.edit(
                 f"**Terminal Running...**\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people\n\n**× LastError:** `{error}`"
             )
+            asyncio.sleep(2)
         except Exception as e:
             error = str(e)
             f = f + 1
