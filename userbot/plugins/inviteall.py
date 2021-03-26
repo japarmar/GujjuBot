@@ -96,7 +96,7 @@ async def get_users(event):
                     await show.client.send_message(
             Config.PRIVATE_GROUP_BOT_API_ID, "#ADDING\n"
             f"ADDED **{s}** account(s) !!\
-            \nFailed **{f}** account(s) !!`
+            \nFailed **{f}** account(s) !!\
             \nCHAT: {event.chat.title}(`{event.chat_id}`)")
             await event.client(
                 functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
