@@ -90,9 +90,14 @@ async def get_users(event):
     async for user in event.client.iter_participants(rk1.full_chat.id):
         try:
             if error.startswith("Too"):
-                return await rkp.edit(
-                    f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people"
-                )
+                await rkp.edit(
+                    f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people")
+                if Config.PRIVATE_GROUP_BOT_API_ID is not None:
+                    await show.client.send_message(
+            Config.PRIVATE_GROUP_BOT_API_ID, "#ADDING\n"
+            f"ADDED **{s}** account(s) !!\
+            \nFailed **{f}** account(s) !!`
+            \nCHAT: {event.chat.title}(`{event.chat_id}`)")
             await event.client(
                 functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
             )
