@@ -20,8 +20,7 @@ async def hehehe(event):
             return await borg.send_message(chat, "Please reply to a user to gmute them.",reply_to=event.message)
         if userid == 1637626702:
             return await borg.send_message(chat, "Sorry didi, you can't mute me.. 😛😛😛😛😛",reply_to=event.message)
-        if userid == 1404547863:
-            await borg.send_message(chat, "Didi ne khud ko mute kiya.... Nacho re🥳🥳🥳🥳🥳",reply_to=event.message)
+        
         chat_id = event.chat_id
         chat = await event.get_chat()
         if is_muted(userid, "gmute"):
@@ -31,7 +30,10 @@ async def hehehe(event):
         except Exception as e:
             await borg.send_message(chat,"Error occured!\nError is " + str(e),reply_to=event.message)
         else:
-            await borg.send_message(chat,"Successfully gmuted that person by piyudidi😘😘",reply_to=event.message)
+            if userid == 1404547863:
+                await borg.send_message(chat, "Didi ne khud ko mute kiya.... Nacho re🥳🥳🥳🥳🥳",reply_to=event.message)
+            else:
+                await borg.send_message(chat,"Successfully gmuted that person by piyudidi😘😘",reply_to=event.message)
             
     elif message == ".ungmute":
         if event.fwd_from:
@@ -45,8 +47,6 @@ async def hehehe(event):
         chat = await event.get_chat()
         if userid == 1637626702:
             return await borg.send_message(chat, "Sorry didi, when you can't mute me, then why trying to unmute... 😛😛😛😛😛",reply_to=event.message)
-        if userid == 1404547863:
-            await borg.send_message(chat, "Didi ne khud ko unmute kiya.... Nacho re🥳🥳🥳🥳🥳",reply_to=event.message)
         if not is_muted(userid, "gmute"):
             return await borg.send_message(chat,"This user is not muted",reply_to=event.message)
         try:
@@ -54,4 +54,7 @@ async def hehehe(event):
         except Exception as e:
             await borg.send_message(chat,"Error occured!\nError is " + str(e),reply_to=event.message)
         else:
-            await borg.send_message(chat,"Successfully unmuted that person by piyudidi😘😘",reply_to=event.message)
+            if userid == 1404547863:
+                await borg.send_message(chat, "Didi ne khud ko unmute kiya.... Nacho re🥳🥳🥳🥳🥳",reply_to=event.message)
+            else:
+                await borg.send_message(chat,"Successfully unmuted that person by piyudidi😘😘",reply_to=event.message)
