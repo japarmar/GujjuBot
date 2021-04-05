@@ -140,11 +140,9 @@ async def rm_deletedacc(show):
     try:
         await show.edit(del_status)
         await sleep(5)
-        await show.delete()
     except:
         await show.client.send_message(chat,del_status)
         await sleep(5)
-        await show.delete()
 
     if Config.PRIVATE_GROUP_BOT_API_ID is not None:
         await show.client.send_message(
