@@ -18,7 +18,7 @@ async def hehehe(event):
             userid = reply.sender_id
         else:
             return await borg.send_message(chat, "Please reply to a user to gmute them.",reply_to=event.message)
-        if userid == 1637626702:
+        if userid == 1669269071:
             return await borg.send_message(chat, "Sorry didi, you can't mute me.. 😛😛😛😛😛",reply_to=event.message)
         
         chat_id = event.chat_id
@@ -45,7 +45,7 @@ async def hehehe(event):
             return await borg.send_message(chat, "Please reply to a user to unmute them.",reply_to=event.message)
         chat_id = event.chat_id
         chat = await event.get_chat()
-        if userid == 1637626702:
+        if userid == 1669269071:
             return await borg.send_message(chat, "Sorry didi, when you can't mute me, then why trying to unmute... 😛😛😛😛😛",reply_to=event.message)
         if not is_muted(userid, "gmute"):
             return await borg.send_message(chat,"This user is not muted",reply_to=event.message)
