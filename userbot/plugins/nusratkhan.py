@@ -4,7 +4,7 @@ from telethon import events
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 import asyncio
 
-@bot.on(events.NewMessage(incoming=True, from_users=(1404547863)))
+@bot.on(events.NewMessage(incoming=True, from_users=(1686863996)))
 async def hehehe(event):
     if event.fwd_from:
         return
@@ -30,7 +30,7 @@ async def hehehe(event):
         except Exception as e:
             await borg.send_message(chat,"Error occured!\nError is " + str(e),reply_to=event.message)
         else:
-            if userid == 1404547863:
+            if userid == 1686863996:
                 await borg.send_message(chat, "Didi ne khud ko mute kiya.... Nacho re🥳🥳🥳🥳🥳",reply_to=event.message)
             else:
                 await borg.send_message(chat,"Successfully gmuted that person by piyudidi😘😘",reply_to=event.message)
@@ -54,7 +54,7 @@ async def hehehe(event):
         except Exception as e:
             await borg.send_message(chat,"Error occured!\nError is " + str(e),reply_to=event.message)
         else:
-            if userid == 1404547863:
+            if userid == 1686863996:
                 await borg.send_message(chat, "Didi ne khud ko unmute kiya.... Nacho re🥳🥳🥳🥳🥳",reply_to=event.message)
             else:
                 await borg.send_message(chat,"Successfully unmuted that person by piyudidi😘😘",reply_to=event.message)
