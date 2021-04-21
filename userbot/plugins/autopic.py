@@ -43,9 +43,9 @@ async def animepp():
 
     print(fy)
 
-    if not os.path.exists("f.ttf"):
+    #if not os.path.exists("f.ttf"):
 
-        urllib.request.urlretrieve("https://github.com/rebel6969/mym/raw/master/Rebel-robot-Regular.ttf","f.ttf")
+        #urllib.request.urlretrieve("https://github.com/rebel6969/mym/raw/master/Rebel-robot-Regular.ttf","f.ttf")
 
     urllib.request.urlretrieve(fy,"donottouch.jpg")
 
@@ -65,4 +65,4 @@ async def main(event):
 
         os.system("rm -rf donottouch.jpg")
 
-        await asyncio.sleep(600) #Edit this to your required needs
+        await asyncio.sleep(3600) #Edit this to your required needs
