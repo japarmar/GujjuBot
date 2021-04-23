@@ -59,6 +59,19 @@ if Var.PRIVATE_GROUP_ID is not None:
                     await event.edit(" ███████▄▄███████████▄  \n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓█░░░░░░░░░░░░░░█\n▓▓▓▓▓▓███░░░░░░░░░░░░█\n██████▀▀▀█░░░░██████▀  \n░░░░░░░░░█░░░░█  \n░░░░░░░░░░█░░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░█░░█  \n░░░░░░░░░░░░▀▀ \n\nNow You Can't Message Me..[{}](tg://user?id={})".format(firstname, chat.id))
                     await asyncio.sleep(3)
                     await event.client(functions.contacts.BlockRequest(chat.id))
+                    
+    @command(pattern="^.remtempo")
+    async def approve_p_m(event):
+        approved_users = pmpermit_sql.get_all_approved()
+        i = 0
+        if len(approved_users) > 0:
+            for a_user in approved_users:
+                if a_user.reason == "tempo" or a_user.reason == "":
+                    pmpermit_sql.disapprove(a_user.chat_id)
+                    i = i + 1
+            await event.edit("Disapproved {} temporary approved users".format(i))
+        else:
+            await event.edit("no Approved PMs (yet)") 
                 
     @command(pattern="^.disapprove ?(.*)")
     async def approve_p_m(event):
